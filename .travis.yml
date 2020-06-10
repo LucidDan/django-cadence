@@ -1,11 +1,16 @@
 language: python
-sudo: false
+dist: xenial
+os: linux
 python:
   - "3.6"
   - "3.7"
   - "3.8"
   - "3.9-dev"
-matrix:
+jobs:
+  include:
+    - python: 3.8
+      name: mypy
+      env: TOXENV=mypy
   allow_failures:
     - python: "3.9-dev"
 install:
