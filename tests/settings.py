@@ -16,8 +16,7 @@ import os
 
 def path_to(*paths):
     return os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        *paths,
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), *paths,
     )
 
 
@@ -26,7 +25,6 @@ def path_to(*paths):
 SECRET_KEY = "a"
 # noinspection DjangoDebugModeSettings
 DEBUG = True
-ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -36,7 +34,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "django_dramatiq",
     "django_cadence",
     "tests.dramatiq_testapp1",
@@ -73,26 +70,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = ""
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "db.sqlite3",
-    }
-}
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "db.sqlite3",}}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
 
@@ -110,5 +96,5 @@ DRAMATIQ_BROKER = {
         "dramatiq.middleware.Retries",
         "django_dramatiq.middleware.AdminMiddleware",
         "django_dramatiq.middleware.DbConnectionsMiddleware",
-    ]
+    ],
 }

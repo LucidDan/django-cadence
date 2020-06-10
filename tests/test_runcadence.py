@@ -11,16 +11,23 @@ Test the runcadence management command that starts the main scheduler loop.
 #  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 #
 from io import StringIO
+from typing import TYPE_CHECKING
 
 from django.core.management import call_command
+
+if TYPE_CHECKING:
+    from unittest.mock import MagicMock
 
 
 def test_run_management_command(settings, mocker):
     from django_cadence import dispatcher
+
     out = StringIO()
 
-    dispatcher = mocker.patch.object(dispatcher, 'start_dispatcher', autospec=True)
+    dispatcher_obj: "MagicMock" = mocker.patch.object(
+        dispatcher, "start_dispatcher", autospec=True
+    )
 
-    call_command('runcadence', stdout=out)
+    call_command("runcadence", stdout=out)
 
-    dispatcher.assert_called_once()
+    dispatcher_obj.assert_called_once()

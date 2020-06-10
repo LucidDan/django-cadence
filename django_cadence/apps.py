@@ -39,4 +39,3 @@ class DjangoCadenceConfig(AppConfig):
                     logger.debug("No tasks module in %s", app_config.name)
                 except ImportError:
                     logger.error("Error loading {app_config.name}.tasks", exc_info=True)
-

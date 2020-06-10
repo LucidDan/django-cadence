@@ -29,7 +29,8 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "--processes", "-p",
+            "--processes",
+            "-p",
             default=CPU_COUNT,
             type=int,
             help="The number of processes to run (default: %d)." % CPU_COUNT,

@@ -10,7 +10,7 @@ import time
 from django_cadence import cron
 
 
-def i_was_called():
+def i_was_called() -> None:
     """No-op function that can be mocked for testing purposes"""
     pass
 

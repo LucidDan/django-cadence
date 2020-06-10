@@ -10,4 +10,4 @@ from .scheduling import cron
 # Allows "legacy" style use of "django_cadence" as the app, instead of requiring the full AppConfig
 default_app_config = "django_cadence.apps.DjangoCadenceConfig"
 
-__all__ = ['default_app_config', 'cron']
+__all__ = ["default_app_config", "cron"]

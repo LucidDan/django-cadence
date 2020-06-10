@@ -10,26 +10,21 @@ Decorators to wrap django functions and make them scheduled.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
-from functools import partial
+
 from typing import Callable, Union, Optional, TYPE_CHECKING
 
 from apscheduler.triggers.cron import CronTrigger
-from apscheduler.triggers.interval import IntervalTrigger
 
 from .apps import JOBS
 
-if TYPE_CHECKING:
-    from dramatiq import Actor
-    from celery.app.task import Task
 
-
-def cron(crontab: str, job_id: Optional[str] = None) -> "Callable[[Union[Task, Actor, Callable]], Union[Task, Actor, Callable]]":
+def cron(crontab, job_id=None):
     """
     Wrap a regular function, Celery task, or Dramatiq actor in a cron schedule.
     """
     trigger = CronTrigger.from_crontab(crontab)
 
-    def decorator(f: "Union[Task, Actor, Callable]") -> "Union[Task, Actor, Callable]":
+    def decorator(f):
         """Create a scheduled trigger for the decorated callable"""
 
         # We might be getting called as a wrapper of a regular callable (function, class, etc)

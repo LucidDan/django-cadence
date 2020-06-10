@@ -26,14 +26,14 @@ from django_cadence.apps import JOBS
 logger = logging.getLogger(__name__)
 
 
-def start_dispatcher(processes: int):
+def start_dispatcher(processes):
     """Start the dispatcher loop"""
 
     logger.info("Starting job dispatcher loop")
     # FIXME: Get timezone from django ?
     tz = utc
     jobstores = {
-        'default': MemoryJobStore(),
+        "default": MemoryJobStore(),
         # FIXME: Add support for using Django model as job store in future
         # 'django': DjangoJobStore()
     }
@@ -41,20 +41,25 @@ def start_dispatcher(processes: int):
         # Process pool; good for cases where we are not using Celery or Dramatiq and need to start a process for each
         #  task to be handled in this process.
         executors = {
-            'default': ProcessPoolExecutor(max_workers=processes),
+            "default": ProcessPoolExecutor(max_workers=processes),
         }
     else:
         # Thread pool; for very small thread-safe environments or where all we do is send tasks to Celery or Dramatiq
-        executors = {
-            'default': ThreadPoolExecutor(max_workers=8)
-        }
+        executors = {"default": ThreadPoolExecutor(max_workers=8)}
 
-    scheduler = BlockingScheduler(logger=logger, timezone=tz, executors=executors, jobstores=jobstores)
+    scheduler = BlockingScheduler(
+        logger=logger, timezone=tz, executors=executors, jobstores=jobstores
+    )
 
     for trigger, func, job_id in JOBS:
         logger.debug("Adding task: %s - schedule %r", job_id, trigger)
         scheduler.add_job(
-            func, trigger=trigger, name=job_id, id=job_id, max_instances=1, replace_existing=True
+            func,
+            trigger=trigger,
+            name=job_id,
+            id=job_id,
+            max_instances=1,
+            replace_existing=True,
         )
 
     def shutdown(signum, frame):
