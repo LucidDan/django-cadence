@@ -30,7 +30,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: poetry publish
+  script: poetry publish -r deploypi
   on:
     condition: "$TRAVIS_PYTHON_VERSION == 3.8"
     branch: master
