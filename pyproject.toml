@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-cadence"
-version = "0.1.0"
+version = "0.1.1"
 description = "A package to provide periodic scheduled task support in Django"
 authors = ["Dan Sloan <dan@luciddan.com>"]
 maintainers = ["Dan Sloan <dan@luciddan.com>"]

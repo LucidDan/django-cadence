@@ -26,10 +26,9 @@ A reusable Django app that provides scheduling of asynchronous tasks (via Dramat
 
 ## What's New
 
-Current version: 0.1.0
+Current version: 0.1.1
 
-This is the first release! Currently largely untested against Celery or standalone, this is primarily being used in combination with Dramatiq.
-Pull requests or functionality ideas welcome!
+Testing travis deployment.
 
 See the [changelog](CHANGELOG.md) for more information on recent changes.
 
