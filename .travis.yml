@@ -19,16 +19,20 @@ jobs:
   allow_failures:
     - python: "3.9-dev"
 install:
-  - pip install -U tox-travis poetry
+  - pip install -U pip tox-travis poetry
 script:
   - tox
 
+before_deploy:
+  - pip install -U pip poetry
+  - poetry config repositories.deploypi $PYPI_SERVER
+  - poetry config http-basic.deploypi $PYPI_USER $PYPI_PASSWORD
+
 deploy:
-  provider: pypi
-  user: $PYPI_USER
-  password: $PYPI_PASSWORD
-  server: $PYPI_SERVER
+  provider: script
+  script: poetry publish
   on:
+    condition: "$TRAVIS_PYTHON_VERSION == 3.8"
     branch: master
     tags: true
   skip_existing: true
