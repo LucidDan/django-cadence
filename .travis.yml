@@ -1,6 +1,8 @@
 language: python
 dist: xenial
 os: linux
+cache: pip
+
 python:
   - "3.6"
   - "3.7"
@@ -11,9 +13,22 @@ jobs:
     - python: 3.8
       name: mypy
       env: TOXENV=mypy
+    - python: 3.8
+      name: docs
+      env: TOXENV=docs
   allow_failures:
     - python: "3.9-dev"
 install:
   - pip install -U tox-travis poetry
 script:
   - tox
+
+deploy:
+  provider: pypi
+  user: $PYPI_USER
+  password: $PYPI_PASSWORD
+  server: $PYPI_SERVER
+  on:
+    branch: master
+    tags: true
+  skip_existing: true
