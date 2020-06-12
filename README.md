@@ -1,6 +1,6 @@
 # django_cadence
 
-A reusable Django app that provides scheduling of asynchronous tasks (via Dramatiq, and maybe Celery)
+A reusable Django app that provides scheduling of asynchronous tasks (optionally as asynchronous tasks via Dramatiq or Celery)
 
 ![Latest GitHub Release](https://img.shields.io/github/v/release/LucidDan/django-cadence?sort=semver&style=plastic)
 ![Latest Pypi Release](https://img.shields.io/pypi/v/django-cadence.svg?style=plastic)
@@ -11,7 +11,8 @@ A reusable Django app that provides scheduling of asynchronous tasks (via Dramat
 
 ## Introduction
 
-
+This is a simple package, so far at least, that provides some scheduling capabilities in Django.
+It can do this standalone, or in cooperation with [Dramatiq] or [Celery].
 
 
 ## Links and References
@@ -26,9 +27,9 @@ A reusable Django app that provides scheduling of asynchronous tasks (via Dramat
 
 ## What's New
 
-Current version: 0.1.1
+Current version: 0.1.2
 
-Testing travis deployment.
+Testing travis deployment, and updating documentation.
 
 See the [changelog](CHANGELOG.md) for more information on recent changes.
 
@@ -95,3 +96,6 @@ Here is a non-exhaustive list of sources, people, etc that deserve some thanks f
 
 
 [GitHub Issues]: https://github.com/LucidDan/django-cadence/issues
+[Dramatiq]: https://dramatiq.io/
+[Celery]: https://docs.celeryproject.org/
+

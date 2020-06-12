@@ -7,6 +7,13 @@ Versions in this project strictly adhere to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.2] - 2020-06-12
+### Added
+- Finished readthedocs support (no documentation yet but integration works)
+
+### Fixed
+- Some README cleanups and corrections.
+
 ## [0.1.1] - 2020-06-11
 ### Fixed
 - Switched to using Poetry publish for travis-ci deploy to pypi
@@ -21,5 +28,6 @@ Versions in this project strictly adhere to [Semantic Versioning].
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
 
 [Unreleased]: https://github.com/LucidDan/django-cadence/compare/0.1.1...HEAD
+[0.1.2]: https://github.com/LucidDan/django-cadence/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/LucidDan/django-cadence/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/LucidDan/django-cadence/releases/tag/0.1.0
