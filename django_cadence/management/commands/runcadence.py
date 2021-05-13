@@ -39,5 +39,11 @@ class Command(BaseCommand):
     def handle(self, processes, **options):
         """Handle a call to the command via manage.py"""
 
+        # Note: if we're using dramatiq (and maybe celery), we should not have multiple processes
+        if processes > 1:
+            self.stdout.write(
+                "WARNING: Multi-process mode for dramatiq or celery is not recommended due to potential pickling issues."
+            )
+            self.stdout.flush()
         # Set up and run the job dispatcher
         start_dispatcher(processes=processes)

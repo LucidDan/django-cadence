@@ -1,5 +1,6 @@
-from typing import Any, Callable, Type, Tuple, List
+from typing import Any, Callable, TypeVar, Tuple, List
 
 from apscheduler.triggers.base import BaseTrigger
 
-JOBS: List[Tuple[Type[BaseTrigger], Callable[..., Any], str]]
+TriggerType = TypeVar("TriggerType", bound=BaseTrigger)
+JOBS: List[Tuple[TriggerType, Callable[..., Any], str]]

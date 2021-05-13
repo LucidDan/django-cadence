@@ -15,18 +15,19 @@ import alabaster
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..'))
+
+sys.path.insert(0, os.path.abspath(".."))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'django-cadence'
-copyright = '2020, Daniel Sloan, Lucid Horizons'
-author = 'Dan Sloan <dan@luciddan.com>'
+project = "django-cadence"
+copyright = "2020, Daniel Sloan, Lucid Horizons"
+author = "Dan Sloan <dan@luciddan.com>"
 
 # The full version, including alpha/beta/rc tags
-version = '0.1.0'
-release = '0.1.0'
+version = "0.1.0"
+release = "0.1.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -35,23 +36,23 @@ release = '0.1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.githubpages',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.napoleon',
-    'alabaster',
-#    'sitemap',
+    "sphinx.ext.githubpages",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.todo",
+    "sphinx.ext.coverage",
+    "sphinx.ext.napoleon",
+    "alabaster",
+    #    'sitemap',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -59,21 +60,21 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = "alabaster"
 
 html_context = {}
 
 html_theme_options = {
-    'logo_name': False,
-    'code_font_family': '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-    'code_font_size': '0.8em',
-    'show_related': False,
-    'fixed_sidebar': False,
-    'github_banner': True,
-    'github_button': True,
-    'github_type': 'star',
-    'github_user': 'LucidDan',
-    'github_repo': 'django-cadence',
+    "logo_name": False,
+    "code_font_family": '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+    "code_font_size": "0.8em",
+    "show_related": False,
+    "fixed_sidebar": False,
+    "github_banner": True,
+    "github_button": True,
+    "github_type": "star",
+    "github_user": "LucidDan",
+    "github_repo": "django-cadence",
 }
 
 # html_sidebars = {
@@ -89,7 +90,7 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 
 # -- Extension configuration -------------------------------------------------
@@ -103,5 +104,5 @@ todo_include_todos = False
 # intersphinx options
 
 intersphinx_mapping = {
-    'https://docs.python.org/3/': None,
+    "https://docs.python.org/3/": None,
 }

@@ -37,6 +37,9 @@ def start_dispatcher(processes):
         # FIXME: Add support for using Django model as job store in future
         # 'django': DjangoJobStore()
     }
+    # Note: we can't pickle dramatiq actors, so doing this in multi-process is a bad idea.
+    #  Haven't come up with a great solution to this yet, but it'll probably be something along
+    #  the lines of storing caller type information and just pickle the function, not the function.send
     if processes > 1:
         # Process pool; good for cases where we are not using Celery or Dramatiq and need to start a process for each
         #  task to be handled in this process.
