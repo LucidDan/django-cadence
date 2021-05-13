@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 class CeleryTestApp1Config(AppConfig):
-    name = "celery_testapp1"
+    name = "tests.celery_testapp1"
     loaded = False
 
     def ready(self):

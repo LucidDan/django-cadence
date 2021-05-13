@@ -19,7 +19,8 @@ logger = logging.getLogger(__name__)
 
 
 class DramatiqTestApp1Config(AppConfig):
-    name = "dramatiq_testapp1"
+    name = "tests.dramatiq_testapp1"
+    default = True
     loaded = False
 
     def ready(self):

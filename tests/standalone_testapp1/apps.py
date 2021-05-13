@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 class StandaloneTestApp1Config(AppConfig):
-    name = "standalone_testapp1"
+    name = "tests.standalone_testapp1"
     loaded = False
 
     def ready(self):
