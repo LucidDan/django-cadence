@@ -6,8 +6,12 @@
 #
 
 from .scheduling import cron
+from django import VERSION
 
-# Allows "legacy" style use of "django_cadence" as the app, instead of requiring the full AppConfig
-default_app_config = "django_cadence.apps.DjangoCadenceConfig"
-
-__all__ = ["default_app_config", "cron"]
+# Get rid of this soon. Makes deprecation warnings now in dj3.2.
+if VERSION[0] == 4 or (VERSION[0] == 3 and VERSION[1] > 1):
+    __all__ = ["cron"]
+else:
+    # Allows "legacy" style use of "django_cadence" as the app, instead of requiring the full AppConfig
+    default_app_config = "django_cadence.apps.DjangoCadenceConfig"
+    __all__ = ["default_app_config", "cron"]
